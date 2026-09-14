@@ -6,11 +6,14 @@ function db() {
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
   try {
     const sql = db();
 
     if (req.method === 'POST') {
-      const { name, phone, city, qty = 1, address, total = 0 } = req.body || {};
+      let body = req.body || {};
+      if (typeof body === 'string') { try { body = JSON.parse(body); } catch { body = {}; } }
+      const { name, phone, city, qty = 1, address } = body;
       const cleanName = String(name || '').trim();
       const cleanPhone = String(phone || '').trim();
       const cleanCity = String(city || '').trim();
@@ -18,7 +21,17 @@ export default async function handler(req, res) {
       if (!cleanName || !cleanPhone || !cleanAddress) return res.status(400).json({ error: 'الاسم ورقم الهاتف والعنوان مطلوبون' });
       if (cleanName.length > 160 || cleanPhone.length > 50 || cleanCity.length > 100 || cleanAddress.length > 700) return res.status(400).json({ error: 'بعض البيانات أطول من المسموح' });
       const q = Math.max(1, Math.min(20, Number(qty) || 1));
-      const amount = Math.max(0, Math.min(100000, Number(total) || 0));
+
+      // السعر والتوصيل يحسبان على الخادم حسب إعدادات لوحة التحكم.
+      const contentRows = await sql`SELECT content FROM site_content WHERE id = 1`;
+      const settings = contentRows[0]?.content || {};
+      let unitPrice = Number(settings.price);
+      if (!unitPrice || String(settings.price ?? '').trim() === '39.5') unitPrice = 15;
+      const ammanShipping = Number(settings.shippingAmman) || 2;
+      const otherShipping = Number(settings.shippingOther) || 3;
+      const normalizedCity = cleanCity.normalize('NFD').replace(/[\u064B-\u065F\u0670\u0640]/g, '').trim();
+      const shipping = normalizedCity === 'عمان' ? ammanShipping : otherShipping;
+      const amount = Math.max(0, Math.min(100000, Number((unitPrice * q + shipping).toFixed(2))));
       const rows = await sql`INSERT INTO orders (name, phone, city, qty, address, total)
         VALUES (${cleanName}, ${cleanPhone}, ${cleanCity}, ${q}, ${cleanAddress}, ${amount}) RETURNING id`;
       return res.status(200).json({ ok: true, id: rows[0].id });

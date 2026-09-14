@@ -6,6 +6,7 @@ function db() {
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
   try {
     const sql = db();
     if (req.method === 'GET') {
@@ -17,7 +18,9 @@ export default async function handler(req, res) {
       const password = req.headers['x-admin-password'];
       if (!process.env.ADMIN_PASSWORD) return res.status(503).json({ error: 'ADMIN_PASSWORD is not configured' });
       if (password !== process.env.ADMIN_PASSWORD) return res.status(401).json({ error: 'كلمة المرور غير صحيحة' });
-      const content = req.body?.content;
+      let body = req.body || {};
+      if (typeof body === 'string') { try { body = JSON.parse(body); } catch { body = {}; } }
+      const content = body?.content;
       if (!content || typeof content !== 'object' || Array.isArray(content)) return res.status(400).json({ error: 'بيانات غير صحيحة' });
       await sql`INSERT INTO site_content (id, content, updated_at)
         VALUES (1, ${JSON.stringify(content)}::jsonb, now())

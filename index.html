@@ -187,12 +187,32 @@ function money(value) {
   const n = Number(value) || 0;
   return (Math.round(n * 10) / 10).toFixed(Number.isInteger(n) ? 0 : 1);
 }
+function initMetaPixel(rawId){
+  const pixelId=String(rawId||'').replace(/\D/g,'').slice(0,30);
+  if(!pixelId || window.__emPixelId===pixelId) return Boolean(window.__emPixelId);
+  if(!window.fbq){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  }
+  window.fbq('init',pixelId);
+  window.fbq('track','PageView');
+  window.fbq('track','ViewContent',{content_name:'English Masters',content_type:'product',value:Number(unitPrice||15),currency:'JOD'});
+  window.__emPixelId=pixelId;
+  window.__emCheckoutTracked=false;
+  return true;
+}
+function trackMeta(eventName,params={}){
+  if(window.fbq && window.__emPixelId){
+    try{window.fbq('track',eventName,params);return true}catch(e){console.warn('Meta Pixel event failed',e)}
+  }
+  return false;
+}
 function applyContent(c) {
   siteContent = {...DEFAULT_CONTENT, ...(c || {})};
   // ترقية تلقائية من النسخة القديمة: لو كانت القيم القديمة ما زالت محفوظة في قاعدة البيانات، نطبق التسعير والتوصيل الجديدين.
   if (String(siteContent.price ?? '').trim() === '39.5' || !siteContent.price) siteContent.price = '15';
   if (!siteContent.shippingAmman) siteContent.shippingAmman = '2';
   if (!siteContent.shippingOther) siteContent.shippingOther = '3';
+  siteContent.metaPixelId=String(siteContent.metaPixelId||'').replace(/\D/g,'').slice(0,30);
   if (!siteContent.topBarHighlight || String(siteContent.topBarHighlight).includes('مجاني')) siteContent.topBarHighlight = 'الدفع عند الاستلام';
   // أسعار التوصيل لا تُعرض كرسالة تسويقية؛ تُحسب فقط تلقائيًا داخل ملخص الطلب.
   siteContent.shippingText = '';
@@ -200,6 +220,7 @@ function applyContent(c) {
   siteContent.faq1Q = 'هل الطلب متاح داخل الأردن؟';
   siteContent.faq1A = 'نعم، الطلب متاح لجميع محافظات المملكة والدفع عند الاستلام.';
   unitPrice = Number(siteContent.price) || Number(DEFAULT_CONTENT.price) || 15;
+  initMetaPixel(siteContent.metaPixelId);
 
   const topBar = document.getElementById('topBar');
   if (topBar) {
@@ -316,6 +337,7 @@ cityEl?.addEventListener('change',updateTotal);
 
 const form=document.getElementById('orderForm');
 const submitBtn=document.getElementById('submitButton');
+form.addEventListener('focusin',()=>{if(!window.__emCheckoutTracked){window.__emCheckoutTracked=true;trackMeta('InitiateCheckout',{content_name:'English Masters',value:Number(unitPrice||15),currency:'JOD'});}});
 form.addEventListener('submit', async (e)=>{
   e.preventDefault();
   const data=Object.fromEntries(new FormData(form).entries());
@@ -338,6 +360,7 @@ form.addEventListener('submit', async (e)=>{
     });
     const j=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error(j.error || 'تعذر إرسال الطلب');
+    trackMeta('Purchase',{content_name:'English Masters',content_type:'product',value:Number(j.total ?? ((unitPrice*qty)+getShippingRate(data.city))),currency:'JOD',num_items:Number(j.qty||qty)});
     document.getElementById('success').style.display='flex';
     form.reset();
     updateTotal();

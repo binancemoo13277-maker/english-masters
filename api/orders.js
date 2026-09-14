@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       const amount = Math.max(0, Math.min(100000, Number((unitPrice * q + shipping).toFixed(2))));
       const rows = await sql`INSERT INTO orders (name, phone, city, qty, address, total)
         VALUES (${cleanName}, ${cleanPhone}, ${cleanCity}, ${q}, ${cleanAddress}, ${amount}) RETURNING id`;
-      return res.status(200).json({ ok: true, id: rows[0].id });
+      return res.status(200).json({ ok: true, id: rows[0].id, total: amount, qty: q });
     }
 
     if (req.method === 'GET') {
@@ -43,6 +43,26 @@ export default async function handler(req, res) {
       if (password !== process.env.ADMIN_PASSWORD) return res.status(401).json({ error: 'كلمة المرور غير صحيحة' });
       const rows = await sql`SELECT id, name, phone, city, qty, address, total, created_at FROM orders ORDER BY created_at DESC LIMIT 500`;
       return res.status(200).json({ orders: rows });
+    }
+
+    if (req.method === 'DELETE') {
+      const password = req.headers['x-admin-password'];
+      if (!process.env.ADMIN_PASSWORD) return res.status(503).json({ error: 'ADMIN_PASSWORD is not configured' });
+      if (password !== process.env.ADMIN_PASSWORD) return res.status(401).json({ error: 'كلمة المرور غير صحيحة' });
+
+      let body = req.body || {};
+      if (typeof body === 'string') { try { body = JSON.parse(body); } catch { body = {}; } }
+      const rawIds = Array.isArray(body.ids) ? body.ids : [body.id];
+      const ids = [...new Set(rawIds.map(Number).filter(id => Number.isInteger(id) && id > 0))].slice(0, 500);
+      if (!ids.length) return res.status(400).json({ error: 'لم يتم تحديد طلبات صحيحة' });
+
+      const deletedIds = [];
+      for (const id of ids) {
+        const deleted = await sql`DELETE FROM orders WHERE id = ${id} RETURNING id`;
+        if (deleted.length) deletedIds.push(Number(deleted[0].id));
+      }
+      if (!deletedIds.length) return res.status(404).json({ error: 'الطلبات غير موجودة' });
+      return res.status(200).json({ ok: true, ids: deletedIds, count: deletedIds.length });
     }
 
     return res.status(405).json({ error: 'Method not allowed' });

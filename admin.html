@@ -1,283 +1,40 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>لوحة تحكم English Masters</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>لوحة التحكم — English Masters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#171717;font-family:Cairo,system-ui,sans-serif}button,input,textarea{font:inherit}
-.wrap{width:min(100% - 24px,1120px);margin:22px auto 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}h1{margin:0;font-size:27px}.hint{font-size:12px;color:#777}
-.card{background:#fff;border:1px solid #e6e6e6;border-radius:16px;padding:17px;box-shadow:0 6px 22px rgba(0,0,0,.04);margin-bottom:14px}
-.login{display:flex;gap:8px;align-items:center;flex-wrap:wrap}input[type=password]{min-width:250px}input,textarea{border:1px solid #d8d8d8;border-radius:10px;padding:10px 11px;background:#fff;outline:none;width:100%}input:focus,textarea:focus{border-color:#ef233c;box-shadow:0 0 0 3px rgba(239,35,60,.08)}textarea{min-height:95px;resize:vertical}
-.btn{border:0;border-radius:10px;padding:10px 15px;font-weight:900;cursor:pointer}.dark{background:#111;color:#fff}.red{background:#ef233c;color:#fff}.soft{background:#eceff2;color:#111}.green{background:#0d9b4c;color:#fff}.deleteBtn{background:#fff1f2;color:#c1121f;border:1px solid #ffc9cf;border-radius:8px;padding:7px 11px;font-weight:900;cursor:pointer;white-space:nowrap}.deleteBtn:hover{background:#ffe1e5}
-.tabs{display:flex;gap:8px;margin-bottom:14px}.tab{border:1px solid #ddd;background:#fff;border-radius:10px;padding:9px 15px;font-weight:900;cursor:pointer}.tab.active{background:#111;color:#fff}
-.panel{display:none}.panel.active{display:block}
-details.editor{background:#fff;border:1px solid #e5e5e5;border-radius:14px;margin-bottom:10px;overflow:hidden}details.editor summary{padding:14px 16px;font-weight:900;cursor:pointer;background:#fff}details.editor[open] summary{border-bottom:1px solid #eee}
-.fields{padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:800;color:#444}
-.imageRow{display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center}.preview{width:160px;height:100px;object-fit:contain;border:1px solid #e2e2e2;border-radius:9px;background:#fafafa;margin-top:7px}
-.savebar{position:sticky;bottom:10px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid #ddd;border-radius:13px;padding:10px;display:flex;gap:10px;align-items:center;z-index:20}
-.status{font-size:13px;font-weight:800}.ok{color:#078841}.bad{color:#c1121f}
-.ordersTop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.orders{overflow:auto;margin-top:12px}table{width:100%;border-collapse:collapse;min-width:980px}th,td{padding:9px;border-bottom:1px solid #eee;text-align:right;font-size:13px}th{background:#fafafa;position:sticky;top:0;z-index:1}.count{font-weight:900;color:#ef233c}.filterBar{display:grid;grid-template-columns:repeat(2,minmax(150px,1fr)) auto auto auto;gap:8px;align-items:end;margin-top:14px;padding:12px;background:#fafafa;border:1px solid #ececec;border-radius:12px}.filterField{display:flex;flex-direction:column;gap:5px}.filterField label{font-size:12px}.bulkBar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0 0;padding:10px 12px;border-radius:11px;background:#fff7f8;border:1px solid #ffd2d8}.bulkBar[hidden]{display:none}.danger{background:#c1121f;color:#fff}.danger:disabled{opacity:.45;cursor:not-allowed}.selectCell{width:44px;text-align:center}.selectCell input{width:auto;transform:scale(1.15);cursor:pointer}.muted{color:#777}.pixelNote{margin-bottom:12px;padding:12px 14px;border:1px solid #dce7ff;background:#f6f9ff;border-radius:12px;font-size:13px;line-height:1.8}.pixelNote b{color:#0b57d0}.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#eef7f1;color:#08743c;font-size:12px;font-weight:800}
-@media(max-width:760px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}h1{font-size:22px}input[type=password]{min-width:0;flex:1}.filterBar{grid-template-columns:1fr 1fr}.filterBar .btn{width:100%}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top">
-    <div><h1>لوحة تحكم English Masters</h1><div class="hint">أي تعديل تحفظه يظهر على صفحة الهبوط مباشرة.</div></div>
-    <a class="btn soft" href="/" target="_blank" style="text-decoration:none">فتح الموقع ↗</a>
-  </div>
-  <div class="card">
-    <div class="login">
-      <input id="password" type="password" placeholder="كلمة مرور الإدارة">
-      <button class="btn dark" id="loginBtn">دخول / تحديث</button>
-      <span id="loginStatus" class="status"></span>
-    </div>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active" data-tab="content">تعديل الموقع</button>
-    <button class="tab" data-tab="orders">الطلبات</button>
-  </div>
-
-  <div id="contentPanel" class="panel active">
-    <div class="pixelNote"><b>Facebook Pixel:</b> ضع Pixel ID في قسم «فيسبوك بيكسل» ثم احفظ. الصفحة سترسل تلقائيًا PageView وViewContent وInitiateCheckout وPurchase بعد نجاح الطلب.</div>
-    <div id="editor"></div>
-    <div class="savebar">
-      <button class="btn red" id="saveBtn">حفظ التعديلات</button>
-      <button class="btn soft" id="resetBtn">استرجاع النصوص الأصلية</button>
-      <span id="saveStatus" class="status"></span>
-    </div>
-  </div>
-
-  <div id="ordersPanel" class="panel">
-    <div class="card">
-      <div class="ordersTop">
-        <div><h2 style="margin:0">الطلبات <span class="count" id="orderCount"></span></h2><div class="hint">أحدث الطلبات تظهر أولًا — ويمكنك فلترة وتحديد وحذف أكثر من طلب.</div></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn dark" id="reloadOrders">تحديث</button><button class="btn green" id="csvBtn">تصدير النتائج CSV</button></div>
-      </div>
-      <div class="filterBar">
-        <div class="filterField"><label for="dateFrom">من تاريخ</label><input id="dateFrom" type="date"></div>
-        <div class="filterField"><label for="dateTo">إلى تاريخ</label><input id="dateTo" type="date"></div>
-        <button class="btn dark" id="applyDateFilter">تطبيق الفلتر</button>
-        <button class="btn soft" id="todayFilter">اليوم</button>
-        <button class="btn soft" id="clearDateFilter">مسح الفلتر</button>
-      </div>
-      <div class="bulkBar" id="bulkBar" hidden>
-        <span class="pill">المحدد: <b id="selectedCount">0</b></span>
-        <button class="btn danger" id="deleteSelected" disabled>حذف المحدد</button>
-        <button class="btn soft" id="clearSelection">إلغاء التحديد</button>
-      </div>
-      <div class="orders" id="ordersBox">اكتب كلمة المرور ثم افتح الطلبات.</div>
-    </div>
-  </div>
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--lime:#b8ff3b;--bg:#f8fafc;--red:#dc2626;--green:#16a34a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,sans-serif}button,input,textarea{font:inherit}.wrap{width:min(1180px,calc(100% - 24px));margin:22px auto 80px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.top h1{margin:0;font-size:28px}.open{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:900;text-decoration:none;color:inherit}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 30px rgba(15,23,42,.04);margin-bottom:14px}.login{display:grid;grid-template-columns:1fr auto;gap:8px}.login input{min-width:0}.status{font-size:13px;font-weight:800;margin-top:8px;min-height:20px}.ok{color:#15803d}.bad{color:#b91c1c}.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer}.dark{background:var(--ink);color:#fff}.green{background:var(--green);color:#fff}.red{background:var(--red);color:#fff}.soft{background:#eef2f7;color:var(--ink)}.tabs{display:flex;gap:8px;margin-bottom:14px}.tab{background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 15px;font-weight:900;cursor:pointer}.tab.active{background:var(--ink);color:#fff}.panel{display:none}.panel.active{display:block}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:800;color:#334155}.field input,.field textarea{width:100%;border:1px solid #cbd5e1;border-radius:11px;padding:10px 11px;outline:none}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(15,23,42,.06)}.sectionTitle{font-size:17px;margin:0 0 12px}.savebar{position:sticky;bottom:10px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px;margin-top:14px;z-index:20}.ordersTop{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.count{color:var(--red);font-weight:900}.filter{display:grid;grid-template-columns:1fr 1fr auto auto auto;gap:8px;align-items:end;margin:14px 0;padding:12px;background:#f8fafc;border:1px solid var(--line);border-radius:13px}.filter label{font-size:12px;font-weight:800}.filter input{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:9px}.bulk{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff7f7;border:1px solid #fecaca;border-radius:12px;padding:9px 11px;margin-bottom:10px}.bulk[hidden]{display:none}.tableWrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:10px;border-bottom:1px solid #edf2f7;text-align:right;font-size:13px;vertical-align:top}th{background:#f8fafc;position:sticky;top:0;z-index:1}td.check,th.check{width:42px;text-align:center}input[type=checkbox]{width:17px;height:17px}.del{background:#fff1f2;border:1px solid #fecdd3;color:#be123c;border-radius:8px;padding:6px 10px;font-weight:900;cursor:pointer}.muted{color:var(--muted)}.pixelNote{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;font-size:13px;color:#166534;margin-bottom:12px}
+@media(max-width:760px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.login{grid-template-columns:1fr}.filter{grid-template-columns:1fr 1fr}.filter .btn{width:100%}.top h1{font-size:23px}}
+</style></head>
+<body><div class="wrap"><div class="top"><div><h1>لوحة تحكم English Masters</h1><div class="muted" style="font-size:12px">النسخة الأصلية الجديدة — الطلبات القديمة والجديدة في نفس القاعدة</div></div><a class="open" href="/" target="_blank">فتح الموقع ↗</a></div>
+<div class="card"><div class="login"><input id="password" type="password" placeholder="كلمة مرور الأدمن"><button class="btn dark" id="loginBtn">دخول / تحديث</button></div><div id="loginStatus" class="status"></div></div>
+<div class="tabs"><button class="tab active" data-tab="site">تعديل الموقع</button><button class="tab" data-tab="orders">الطلبات</button></div>
+<div class="panel active" id="sitePanel">
+<div class="card"><h2 class="sectionTitle">فيسبوك بيكسل والأسعار</h2><div class="pixelNote">ضع Pixel ID فقط. الموقع يرسل PageView وViewContent وInitiateCheckout وPurchase بعد نجاح الطلب.</div><div class="fields"><div class="field"><label>Facebook Pixel ID</label><input data-key="metaPixelId" inputmode="numeric" placeholder="مثال: 123456789012345"></div><div class="field"><label>سعر الباقة (د.أ)</label><input data-key="price" type="number" step="0.1" min="0"></div><div class="field"><label>توصيل عمّان (د.أ) — لا يظهر كنص في الصفحة</label><input data-key="shippingAmman" type="number" step="0.1" min="0"></div><div class="field"><label>توصيل المحافظات (د.أ) — لا يظهر كنص في الصفحة</label><input data-key="shippingOther" type="number" step="0.1" min="0"></div></div></div>
+<div class="card"><h2 class="sectionTitle">الهيرو والهوية</h2><div class="fields"><div class="field"><label>اسم البراند</label><input data-key="brand"></div><div class="field"><label>الشريط العلوي</label><input data-key="topText"></div><div class="field"><label>السطر الصغير</label><input data-key="eyebrow"></div><div class="field full"><label>العنوان الرئيسي</label><textarea data-key="heroTitle"></textarea></div><div class="field full"><label>وصف العرض</label><textarea data-key="heroText"></textarea></div><div class="field"><label>زر الطلب</label><input data-key="heroCta"></div></div></div>
+<div class="card"><h2 class="sectionTitle">المحتوى</h2><div class="fields"><div class="field"><label>عنوان قسم المميزات</label><input data-key="featuresTitle"></div><div class="field full"><label>وصف قسم المميزات</label><textarea data-key="featuresText"></textarea></div><div class="field"><label>عنوان طريقة الاستخدام</label><input data-key="journeyTitle"></div><div class="field full"><label>وصف طريقة الاستخدام</label><textarea data-key="journeyText"></textarea></div><div class="field"><label>عنوان الخطة</label><input data-key="planTitle"></div><div class="field full"><label>وصف الخطة</label><textarea data-key="planText"></textarea></div></div></div>
+<div class="card"><h2 class="sectionTitle">نموذج الطلب</h2><div class="fields"><div class="field"><label>عنوان الجانب</label><input data-key="orderSideTitle"></div><div class="field full"><label>وصف الجانب</label><textarea data-key="orderSideText"></textarea></div><div class="field"><label>عنوان النموذج</label><input data-key="orderTitle"></div><div class="field full"><label>وصف النموذج</label><textarea data-key="orderText"></textarea></div></div></div>
+<div class="savebar"><button class="btn green" id="saveBtn">حفظ التعديلات</button><span id="saveStatus" class="status"></span></div></div>
+<div class="panel" id="ordersPanel"><div class="card"><div class="ordersTop"><div><h2 style="margin:0">الطلبات <span class="count" id="orderCount">(0)</span></h2><div class="muted" style="font-size:12px">يشمل الطلبات الموجودة سابقًا في Neon.</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn soft" id="refreshOrders">تحديث</button><button class="btn green" id="exportCsv">تصدير CSV</button></div></div>
+<div class="filter"><div><label>من تاريخ</label><input id="dateFrom" type="date"></div><div><label>إلى تاريخ</label><input id="dateTo" type="date"></div><button class="btn dark" id="applyFilter">تطبيق</button><button class="btn soft" id="todayFilter">اليوم</button><button class="btn soft" id="clearFilter">مسح</button></div>
+<div class="bulk" id="bulkBar" hidden><b>المحدد: <span id="selectedCount">0</span></b><button class="btn red" id="deleteSelected">حذف المحدد</button><button class="btn soft" id="clearSelected">إلغاء التحديد</button></div>
+<div class="tableWrap" id="ordersBox"><div class="muted" style="padding:20px;text-align:center">سجل دخولك واضغط تحديث.</div></div></div></div>
 </div>
 <script>
-const DEFAULT_CONTENT={"topBarText": "خصم خاص لفترة محدودة", "topBarHighlight": "الدفع عند الاستلام", "heroBadge": "🇯🇴 حصريًا في الأردن", "heroHighlight": "English Masters", "heroTitle": "ابدأ الإنجليزي من الصفر لمرحلة أقوى في المحادثة مع", "heroLead": "مجموعة تعليمية عملية تجمع أهم الجمل اليومية، الكلمات الأساسية، خطة مذاكرة واضحة، وتسجيلات صوتية تساعدك تتعلم بطريقة منظمة بدل التشتت بين عشرات المصادر.", "price": "15", "oldPrice": "80", "shippingText": "", "heroImage": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/cover-1024x731.jpeg", "heroCta": "اطلب الآن ←", "heroSubcta": "الدفع عند الاستلام — الكمية محدودة", "timerTitle": "العرض على وشك الانتهاء ⌛", "timerCta": "لا تفوت الخصم", "proofTitle": "ليش الناس بتحب الطريقة؟", "proofSub": "الفكرة مش إنك تحفظ قواعد كثيرة. الفكرة إنك تبدأ من جمل ومواقف حقيقية، وتبني عادة يومية سهلة الالتزام.", "review1Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/monsef-1.jpeg", "review1Name": "أحمد عبدالمنصف", "review1Role": "مؤلف ومُعد مناهج", "review1Text": "أكتر شيء فرق معي هو وضوح الخطة وطريقة التعامل مع اللغة كمهارة يومية، مش مادة دراسية تحتاج حفظ.", "review2Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/fiqy-1.jpeg", "review2Name": "محمد الفقي", "review2Role": "رائد أعمال", "review2Text": "الملحقات والخطة اليومية خلتني أعرف أبدأ من وين، وإيش أراجع كل يوم بدل ما أضيع بين كورسات كثيرة.", "review3Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/othman-1.jpeg", "review3Name": "محمود عثمان", "review3Role": "Digital Marketing", "review3Text": "بالنسبة إلي المجموعة مش مجرد كتاب؛ هي أشبه بمسار تعلم كامل في شكل مرتب وسهل الرجوع له.", "review4Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/rania-1.jpeg", "review4Name": "رانيا إسماعيل", "review4Role": "مديرة تنفيذية", "review4Text": "التركيز على الأكثر استخدامًا بدل التفاصيل اللي نادرًا تحتاجها اختصر علي وقت كثير.", "review5Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/aya-1.jpeg", "review5Name": "آية يعقوب", "review5Role": "مهندسة ديكور", "review5Text": "أعجبني تقسيم الجمل حسب المواقف: سفر، شغل، تسوق ومحادثة. كل يوم تقدر تخلص جزء صغير باستمرار.", "review6Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/tawfik-1.jpeg", "review6Name": "توفيق محمد", "review6Role": "صانع محتوى", "review6Text": "أسلوب العرض عملي ومباشر، وفيه اهتمام واضح بالنطق وسوق العمل مش مجرد قواعد نظرية.", "problemTitle": "المشكلة مش إنك “مش شاطر في الإنجليزي”", "problemText": "المشكلة غالبًا إنك بتبدأ كل مرة من مصدر مختلف، تحفظ كلمات بدون سياق، وتتعلم قواعد كثيرة قبل ما تقدر تستخدم جملة واحدة في موقف حقيقي.", "problemSolution": "الحل: مسار واضح يركز على الأكثر استخدامًا ويخليك تمارس يوميًا.", "problemBullet1": "جمل يومية جاهزة للاستخدام", "problemBullet2": "خطة مذاكرة بسيطة بدل العشوائية", "problemBullet3": "صوتيات تساعدك تقلد النطق الصحيح", "bookImage": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/mouck-up-cover-5000-1536x1056-1-1024x704-1.png", "bookBadge": "الكتاب الأساسي", "bookTitle": "أهم 5000 جملة تحتاجها في الإنجليزي", "bookDesc": "بدل ما تبدأ بحفظ آلاف الكلمات المنفصلة، تتعلم جمل كاملة مرتبطة بمواقف تستخدمها فعلًا في السفر والشغل والمحادثات اليومية.", "bookFeature1Title": "مواقف يومية حقيقية", "bookFeature1Text": "سفر، مواصلات، مطاعم، شغل، تسوق وتعاملات يومية.", "bookFeature2Title": "ترجمة واضحة وسياق استخدام", "bookFeature2Text": "تعرف معنى الجملة ومتى تستخدمها بدل الحفظ الأعمى.", "bookFeature3Title": "جزء عملي لسوق العمل", "bookFeature3Text": "مفردات وتعبيرات مفيدة للمقابلات والتواصل المهني.", "giftsTitle": "ومع الكتاب تحصل على مجموعة هدايا عملية", "giftsSub": "مش مجرد صفحات إضافية؛ كل هدية معمولة لحل مشكلة محددة في التعلم أو الالتزام.", "gift1Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/10-1024x1024-1.png", "gift1Title": "خريطة تعلم الإنجليزية", "gift1Text": "خطة تساعدك تعرف ماذا تدرس أولًا، كيف ترتب مستواك، وإيش تعمل يوميًا.", "gift2Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/8-1024x1024-1.png", "gift2Title": "عمل بلا أعذار", "gift2Text": "أفكار عملية تساعدك تقلل التسويف وتكمل اللي بدأت فيه بدل الانقطاع بعد أيام.", "gift3Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/9-1024x1024-1.png", "gift3Title": "داخل عقل متعددي اللغات", "gift3Text": "تتعرف على طرق يتبعها متعلمو اللغات لتثبيت المفردات والممارسة بذكاء.", "gift4Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/7-1024x1024-1.png", "gift4Title": "مقابلة عمل بلا أخطاء", "gift4Text": "نصائح مختصرة تساعدك تظهر مهاراتك بشكل أوضح في المقابلات الوظيفية.", "gift5Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/2-1024x1024-1.png", "gift5Title": "51 قانونًا في التفاوض", "gift5Text": "مبادئ عملية تساعدك تتفاوض بهدوء في الشغل والشراء والمواقف اليومية.", "gift6Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/6-1024x1024-1.png", "gift6Title": "ذاكرة ضد النسيان", "gift6Text": "تقنيات للمراجعة والتكرار تقلل نسيان الكلمات والجمل بعد الدراسة.", "gift7Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/1-1024x1024-1.png", "gift7Title": "أشهر خرافات تعلم الإنجليزية", "gift7Text": "تصحيح أفكار شائعة مثل “لازم أكون موهوب” أو “لازم أبدأ بالجرامر”.", "gift8Image": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/4-1024x1024-1.png", "gift8Title": "تعلم الإنجليزي بطريقة طبيعية", "gift8Text": "كيف تبني الفهم والتكرار تدريجيًا بدل الاعتماد الكامل على القواعد.", "giftsCta": "احجز مجموعتك الآن", "digitalImage": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/2-copy-1024x563-1.png", "digitalBadge": "هدية رقمية", "digitalTitle": "تسجيلات صوتية للجمل تساعدك على النطق", "digitalDesc": "اسمع الجملة، كررها، وسجل نفسك. بهذه الطريقة ما تتعلم القراءة فقط؛ تبني أذن لغوية ونطقًا أفضل خطوة بخطوة.", "digitalFeature1Title": "🎧 تدريب استماع", "digitalFeature1Text": "خلي جزء من وقتك اليومي استماع وتقليد.", "digitalFeature2Title": "🗣️ تكرار ونطق", "digitalFeature2Text": "كرر الجمل بصوت عالٍ بدل القراءة الصامتة فقط.", "packageTitle": "إيش راح يوصلك؟", "packageSub": "مجموعة واحدة مرتبة بدل شراء أكثر من مصدر منفصل.", "packageImage": "https://jordan.englishmasters.store/wp-content/uploads/2023/04/%D8%B5%D9%88%D8%B1%D8%A9-%D9%85%D8%AC%D9%85%D8%B9%D8%A9-2048x668-1-1.png", "packageItem1": "كتاب أهم 5000 جملة", "packageItem2": "خطة تعلم ومراجعة", "packageItem3": "كتيبات تطوير التعلم", "packageItem4": "محتوى لسوق العمل", "packageItem5": "تسجيلات صوتية", "packageItem6": "هدايا رقمية إضافية", "packageShipping": "", "packageCta": "اطلب الآن", "orderBadge": "الدفع عند الاستلام", "orderTitle": "أدخل بياناتك لتأكيد الطلب", "orderSub": "املأ البيانات بدقة، وسيتم التواصل لتأكيد الطلب قبل الشحن.", "submitButton": "تأكيد الطلب — الدفع عند الاستلام", "orderNote": "بالضغط على تأكيد الطلب أنت ترسل بياناتك لغرض تجهيز الطلب والتواصل معك.", "faqTitle": "أسئلة سريعة", "faq1Q": "هل الطلب متاح داخل الأردن؟", "faq1A": "نعم، الطلب متاح لجميع محافظات المملكة والدفع عند الاستلام.", "faq2Q": "كيف أدفع؟", "faq2A": "الدفع عند الاستلام بعد تأكيد الطلب.", "faq3Q": "هل المجموعة مناسبة للمبتدئ؟", "faq3A": "نعم، الخطة مصممة بحيث تقدر تبدأ من الأساسيات وتتقدم تدريجيًا.", "faq4Q": "هل أحتاج كورس آخر معها؟", "faq4A": "المجموعة توفر مسارًا مرتبًا للبداية والممارسة، ويمكنك إضافة مصادر أخرى لاحقًا حسب هدفك ومستواك.", "footerBrand": "English Masters الأردن", "footerText": "جميع الحقوق محفوظة — صفحة طلب مستقلة", "mobileCtaText": "اطلب الآن", "successTitle": "تم استلام بياناتك", "successText": "سيتم التواصل معك لتأكيد الطلب في أقرب وقت.", "shippingAmman": "2", "shippingOther": "3"};
-const SECTIONS=[["العرض الرئيسي", [["topBarText", "نص الشريط العلوي", "text"], ["topBarHighlight", "النص المميز في الشريط", "text"], ["heroBadge", "شارة العرض", "text"], ["heroTitle", "العنوان الرئيسي", "text"], ["heroHighlight", "الكلمة الحمراء في العنوان", "text"], ["heroLead", "الوصف تحت العنوان", "textarea"], ["price", "السعر الحالي", "number"], ["oldPrice", "السعر القديم", "number"], ["shippingAmman", "توصيل عمّان", "number"], ["shippingOther", "توصيل باقي المحافظات", "number"], ["heroImage", "صورة المنتج الرئيسية", "image"], ["heroCta", "زر الطلب الرئيسي", "text"], ["heroSubcta", "النص تحت زر الطلب", "text"], ["timerTitle", "عنوان العداد", "text"], ["timerCta", "زر العداد", "text"]]], ["آراء العملاء", [["proofTitle", "عنوان آراء العملاء", "text"], ["proofSub", "الوصف تحت العنوان", "textarea"], ["review1Name", "اسم العميل 1", "text"], ["review1Role", "صفة العميل 1", "text"], ["review1Text", "رأي العميل 1", "textarea"], ["review1Image", "صورة العميل 1", "image"], ["review2Name", "اسم العميل 2", "text"], ["review2Role", "صفة العميل 2", "text"], ["review2Text", "رأي العميل 2", "textarea"], ["review2Image", "صورة العميل 2", "image"], ["review3Name", "اسم العميل 3", "text"], ["review3Role", "صفة العميل 3", "text"], ["review3Text", "رأي العميل 3", "textarea"], ["review3Image", "صورة العميل 3", "image"], ["review4Name", "اسم العميل 4", "text"], ["review4Role", "صفة العميل 4", "text"], ["review4Text", "رأي العميل 4", "textarea"], ["review4Image", "صورة العميل 4", "image"], ["review5Name", "اسم العميل 5", "text"], ["review5Role", "صفة العميل 5", "text"], ["review5Text", "رأي العميل 5", "textarea"], ["review5Image", "صورة العميل 5", "image"], ["review6Name", "اسم العميل 6", "text"], ["review6Role", "صفة العميل 6", "text"], ["review6Text", "رأي العميل 6", "textarea"], ["review6Image", "صورة العميل 6", "image"]]], ["قسم المشكلة والحل", [["problemTitle", "العنوان", "text"], ["problemText", "شرح المشكلة", "textarea"], ["problemSolution", "نص الحل", "textarea"], ["problemBullet1", "النقطة الأولى", "text"], ["problemBullet2", "النقطة الثانية", "text"], ["problemBullet3", "النقطة الثالثة", "text"]]], ["كتاب 5000 جملة", [["bookImage", "صورة الكتاب", "image"], ["bookBadge", "شارة القسم", "text"], ["bookTitle", "عنوان القسم", "text"], ["bookDesc", "وصف القسم", "textarea"], ["bookFeature1Title", "ميزة 1 - العنوان", "text"], ["bookFeature1Text", "ميزة 1 - الشرح", "textarea"], ["bookFeature2Title", "ميزة 2 - العنوان", "text"], ["bookFeature2Text", "ميزة 2 - الشرح", "textarea"], ["bookFeature3Title", "ميزة 3 - العنوان", "text"], ["bookFeature3Text", "ميزة 3 - الشرح", "textarea"]]], ["الهدايا", [["giftsTitle", "عنوان الهدايا", "text"], ["giftsSub", "وصف الهدايا", "textarea"], ["gift1Title", "هدية 1 - الاسم", "text"], ["gift1Text", "هدية 1 - الوصف", "textarea"], ["gift1Image", "هدية 1 - الصورة", "image"], ["gift2Title", "هدية 2 - الاسم", "text"], ["gift2Text", "هدية 2 - الوصف", "textarea"], ["gift2Image", "هدية 2 - الصورة", "image"], ["gift3Title", "هدية 3 - الاسم", "text"], ["gift3Text", "هدية 3 - الوصف", "textarea"], ["gift3Image", "هدية 3 - الصورة", "image"], ["gift4Title", "هدية 4 - الاسم", "text"], ["gift4Text", "هدية 4 - الوصف", "textarea"], ["gift4Image", "هدية 4 - الصورة", "image"], ["gift5Title", "هدية 5 - الاسم", "text"], ["gift5Text", "هدية 5 - الوصف", "textarea"], ["gift5Image", "هدية 5 - الصورة", "image"], ["gift6Title", "هدية 6 - الاسم", "text"], ["gift6Text", "هدية 6 - الوصف", "textarea"], ["gift6Image", "هدية 6 - الصورة", "image"], ["gift7Title", "هدية 7 - الاسم", "text"], ["gift7Text", "هدية 7 - الوصف", "textarea"], ["gift7Image", "هدية 7 - الصورة", "image"], ["gift8Title", "هدية 8 - الاسم", "text"], ["gift8Text", "هدية 8 - الوصف", "textarea"], ["gift8Image", "هدية 8 - الصورة", "image"], ["giftsCta", "زر قسم الهدايا", "text"]]], ["الصوتيات", [["digitalImage", "صورة قسم الصوتيات", "image"], ["digitalBadge", "شارة القسم", "text"], ["digitalTitle", "عنوان القسم", "text"], ["digitalDesc", "وصف القسم", "textarea"], ["digitalFeature1Title", "ميزة 1 - العنوان", "text"], ["digitalFeature1Text", "ميزة 1 - الوصف", "textarea"], ["digitalFeature2Title", "ميزة 2 - العنوان", "text"], ["digitalFeature2Text", "ميزة 2 - الوصف", "textarea"]]], ["الباقة والسعر", [["packageTitle", "عنوان الباقة", "text"], ["packageSub", "وصف الباقة", "textarea"], ["packageImage", "صورة الباقة", "image"], ["packageItem1", "محتوى الباقة 1", "text"], ["packageItem2", "محتوى الباقة 2", "text"], ["packageItem3", "محتوى الباقة 3", "text"], ["packageItem4", "محتوى الباقة 4", "text"], ["packageItem5", "محتوى الباقة 5", "text"], ["packageItem6", "محتوى الباقة 6", "text"], ["packageCta", "زر الباقة", "text"]]], ["الطلب والأسئلة والفوتر", [["orderBadge", "شارة الطلب", "text"], ["orderTitle", "عنوان نموذج الطلب", "text"], ["orderSub", "وصف نموذج الطلب", "textarea"], ["submitButton", "زر تأكيد الطلب", "text"], ["orderNote", "ملاحظة تحت الطلب", "textarea"], ["faqTitle", "عنوان الأسئلة", "text"], ["faq1Q", "سؤال 1", "text"], ["faq1A", "إجابة 1", "textarea"], ["faq2Q", "سؤال 2", "text"], ["faq2A", "إجابة 2", "textarea"], ["faq3Q", "سؤال 3", "text"], ["faq3A", "إجابة 3", "textarea"], ["faq4Q", "سؤال 4", "text"], ["faq4A", "إجابة 4", "textarea"], ["footerBrand", "اسم الفوتر", "text"], ["footerText", "نص الفوتر", "text"], ["mobileCtaText", "نص زر الموبايل", "text"], ["successTitle", "عنوان رسالة نجاح الطلب", "text"], ["successText", "نص رسالة نجاح الطلب", "textarea"]]]];
-SECTIONS.unshift(["فيسبوك بيكسل", [["metaPixelId", "Facebook Pixel ID (أرقام فقط)", "text"]]]);
-let content={...DEFAULT_CONTENT};
-let orders=[];
-
-const $=id=>document.getElementById(id);
-function pass(){return $('password').value.trim()}
-function status(el,msg,ok=true){el.textContent=msg;el.className='status '+(ok?'ok':'bad')}
-function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-
-function renderEditor(){
-  const root=$('editor'); root.innerHTML='';
-  SECTIONS.forEach((section,si)=>{
-    const [title,fields]=section;
-    const details=document.createElement('details');
-    details.className='editor';
-    if(si===0) details.open=true;
-    const summary=document.createElement('summary');summary.textContent=title;details.appendChild(summary);
-    const grid=document.createElement('div');grid.className='fields';
-    fields.forEach(([key,label,type])=>{
-      const box=document.createElement('div');box.className='field '+((type==='textarea'||type==='image')?'full':'');
-      const lab=document.createElement('label');lab.htmlFor='f_'+key;lab.textContent=label;box.appendChild(lab);
-      if(type==='textarea'){
-        const ta=document.createElement('textarea');ta.id='f_'+key;ta.dataset.key=key;ta.value=content[key]??'';box.appendChild(ta);
-      } else if(type==='image'){
-        const row=document.createElement('div');row.className='imageRow';
-        const inp=document.createElement('input');inp.id='f_'+key;inp.dataset.key=key;inp.value=content[key]??'';inp.placeholder='رابط الصورة أو ارفع صورة';
-        const upload=document.createElement('input');upload.type='file';upload.accept='image/*';upload.style.maxWidth='190px';
-        const prev=document.createElement('img');prev.className='preview';prev.src=content[key]||'';prev.alt='';
-        inp.addEventListener('input',()=>prev.src=inp.value);
-        upload.addEventListener('change',async()=>{if(upload.files[0]){const data=await compressImage(upload.files[0]);inp.value=data;prev.src=data;}});
-        row.append(inp,upload);box.append(row,prev);
-      } else {
-        const inp=document.createElement('input');inp.id='f_'+key;inp.dataset.key=key;inp.type=type==='number'?'number':'text';
-        if(type==='number'){inp.step='0.1';inp.min='0';}
-        inp.value=content[key]??'';box.appendChild(inp);
-      }
-      grid.appendChild(box);
-    });
-    details.appendChild(grid);root.appendChild(details);
-  });
-}
-
-async function compressImage(file){
-  if(file.size>8*1024*1024) throw new Error('الصورة أكبر من 8MB');
-  const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)});
-  const img=await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=data});
-  const max=1200, scale=Math.min(1,max/Math.max(img.width,img.height));
-  const c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
-  c.getContext('2d').drawImage(img,0,0,c.width,c.height);
-  return c.toDataURL('image/webp',.78);
-}
-
-function collect(){
-  const out={...content};
-  document.querySelectorAll('[data-key]').forEach(el=>out[el.dataset.key]=el.value.trim());
-  return out;
-}
-
-function normalizeContent(raw){
-  const out={...DEFAULT_CONTENT,...(raw||{})};
-  if(String(out.price ?? '').trim()==='39.5' || !out.price) out.price='15';
-  if(!out.shippingAmman) out.shippingAmman='2';
-  if(!out.shippingOther) out.shippingOther='3';
-  out.metaPixelId=String(out.metaPixelId||'').replace(/\D/g,'').slice(0,30);
-  if(!out.topBarHighlight || String(out.topBarHighlight).includes('مجاني')) out.topBarHighlight='الدفع عند الاستلام';
-  out.shippingText='';
-  out.packageShipping='';
-  out.faq1Q='هل الطلب متاح داخل الأردن؟';
-  out.faq1A='نعم، الطلب متاح لجميع محافظات المملكة والدفع عند الاستلام.';
-  return out;
-}
-
-async function loadContent(){
-  status($('loginStatus'),'جاري تحميل المحتوى...');
-  try{
-    const r=await fetch('/api/content',{cache:'no-store'});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error(j.error||'تعذر تحميل المحتوى');
-    content=normalizeContent(j.content||{});
-    renderEditor();
-    status($('loginStatus'),'تم تحميل المحتوى ✓');
-  }catch(e){content=normalizeContent({});renderEditor();status($('loginStatus'),e.message||'تعذر تحميل المحتوى',false)}
-}
-
-async function saveContent(){
-  if(!pass()) return status($('saveStatus'),'اكتب كلمة المرور أولًا',false);
-  status($('saveStatus'),'جاري الحفظ...');
-  const next=normalizeContent(collect());
-  try{
-    const r=await fetch('/api/content',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Password':pass()},body:JSON.stringify({content:next})});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error(j.error||'فشل الحفظ');
-    content=next;
-    sessionStorage.setItem('em_admin_password',pass());
-    status($('saveStatus'),'تم الحفظ ✓ افتح الموقع وشوف التعديل');
-  }catch(e){status($('saveStatus'),e.message||'فشل الحفظ',false)}
-}
-
-let filteredOrders=[];
-const selectedOrderIds=new Set();
-
-function localDateValue(d=new Date()){
-  const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
-  return `${y}-${m}-${day}`;
-}
-function getFilteredOrders(){
-  const from=$('dateFrom').value;
-  const to=$('dateTo').value;
-  let start=null,end=null;
-  if(from){start=new Date(from+'T00:00:00');}
-  if(to){end=new Date(to+'T23:59:59.999');}
-  return orders.filter(o=>{
-    const d=new Date(o.created_at);
-    if(start && d<start) return false;
-    if(end && d>end) return false;
-    return true;
-  });
-}
-function updateBulkUi(){
-  const visibleIds=new Set(filteredOrders.map(o=>Number(o.id)));
-  for(const id of [...selectedOrderIds]) if(!orders.some(o=>Number(o.id)===id)) selectedOrderIds.delete(id);
-  const selectedVisible=[...selectedOrderIds].filter(id=>visibleIds.has(id));
-  $('selectedCount').textContent=selectedVisible.length;
-  $('deleteSelected').disabled=!selectedVisible.length;
-  $('bulkBar').hidden=!selectedVisible.length;
-  const all=$('selectAllOrders');
-  if(all){
-    all.checked=filteredOrders.length>0 && filteredOrders.every(o=>selectedOrderIds.has(Number(o.id)));
-    all.indeterminate=!all.checked && filteredOrders.some(o=>selectedOrderIds.has(Number(o.id)));
-  }
-}
-function renderOrders(){
-  filteredOrders=getFilteredOrders();
-  $('orderCount').textContent=filteredOrders.length===orders.length ? `(${orders.length})` : `(${filteredOrders.length} من ${orders.length})`;
-  if(!filteredOrders.length){$('ordersBox').innerHTML='<div style="padding:22px;text-align:center" class="muted">لا توجد طلبات ضمن الفترة المحددة.</div>';updateBulkUi();return;}
-  $('ordersBox').innerHTML=`<table><thead><tr><th class="selectCell"><input id="selectAllOrders" type="checkbox" aria-label="تحديد الكل"></th><th>#</th><th>الاسم</th><th>الهاتف</th><th>المحافظة</th><th>الكمية</th><th>العنوان</th><th>الإجمالي</th><th>التاريخ</th><th>إجراء</th></tr></thead><tbody>${filteredOrders.map(o=>`<tr><td class="selectCell"><input type="checkbox" class="orderCheck" data-order-id="${escapeHtml(o.id)}" ${selectedOrderIds.has(Number(o.id))?'checked':''}></td><td>${escapeHtml(o.id)}</td><td>${escapeHtml(o.name)}</td><td>${escapeHtml(o.phone)}</td><td>${escapeHtml(o.city)}</td><td>${escapeHtml(o.qty)}</td><td>${escapeHtml(o.address)}</td><td>${escapeHtml(Number(o.total).toFixed(2))}</td><td>${escapeHtml(new Date(o.created_at).toLocaleString('ar-JO'))}</td><td><button class="deleteBtn" data-delete-order="${escapeHtml(o.id)}">حذف</button></td></tr>`).join('')}</tbody></table>`;
-  document.querySelectorAll('[data-delete-order]').forEach(btn=>btn.onclick=()=>deleteOrders([Number(btn.dataset.deleteOrder)]));
-  document.querySelectorAll('.orderCheck').forEach(ch=>ch.addEventListener('change',()=>{
-    const id=Number(ch.dataset.orderId); ch.checked?selectedOrderIds.add(id):selectedOrderIds.delete(id); updateBulkUi();
-  }));
-  const all=$('selectAllOrders');
-  if(all) all.addEventListener('change',()=>{
-    filteredOrders.forEach(o=>all.checked?selectedOrderIds.add(Number(o.id)):selectedOrderIds.delete(Number(o.id)));
-    renderOrders();
-  });
-  updateBulkUi();
-}
-async function loadOrders(){
-  if(!pass()) return status($('loginStatus'),'اكتب كلمة المرور أولًا',false);
-  $('ordersBox').textContent='جاري تحميل الطلبات...';
-  try{
-    const r=await fetch('/api/orders',{headers:{'X-Admin-Password':pass()},cache:'no-store'});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error(j.error||'تعذر تحميل الطلبات');
-    orders=j.orders||[];
-    sessionStorage.setItem('em_admin_password',pass());
-    renderOrders();
-  }catch(e){$('ordersBox').textContent=e.message||'تعذر تحميل الطلبات'}
-}
-async function deleteOrders(ids){
-  ids=[...new Set(ids.map(Number).filter(id=>Number.isInteger(id)&&id>0))];
-  if(!ids.length) return;
-  const label=ids.length===1 ? `الطلب #${ids[0]}` : `${ids.length} طلبات`;
-  if(!confirm(`متأكد إنك عايز تحذف ${label}؟\nالحذف نهائي ولا يمكن التراجع عنه.`)) return;
-  try{
-    const r=await fetch('/api/orders',{method:'DELETE',headers:{'Content-Type':'application/json','X-Admin-Password':pass()},body:JSON.stringify(ids.length===1?{id:ids[0]}:{ids})});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error(j.error||'تعذر حذف الطلبات');
-    ids.forEach(id=>selectedOrderIds.delete(id));
-    orders=orders.filter(o=>!ids.includes(Number(o.id)));
-    renderOrders();
-  }catch(e){alert(e.message||'تعذر حذف الطلبات')}
-}
-function exportCsv(){
-  const rowsToExport=getFilteredOrders();
-  if(!rowsToExport.length) return alert('لا توجد طلبات ضمن الفلتر للتصدير');
-  const rows=[['ID','الاسم','الهاتف','المحافظة','الكمية','العنوان','الإجمالي','التاريخ'],...rowsToExport.map(o=>[o.id,o.name,o.phone,o.city,o.qty,o.address,o.total,o.created_at])];
-  const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='english-masters-orders-filtered.csv';a.click();URL.revokeObjectURL(a.href);
-}
-
-$('loginBtn').onclick=()=>{sessionStorage.setItem('em_admin_password',pass());loadContent();loadOrders()};
-$('saveBtn').onclick=saveContent;
-$('reloadOrders').onclick=loadOrders;
-$('csvBtn').onclick=exportCsv;
-$('applyDateFilter').onclick=renderOrders;
-$('clearDateFilter').onclick=()=>{$('dateFrom').value='';$('dateTo').value='';renderOrders()};
-$('todayFilter').onclick=()=>{const d=localDateValue();$('dateFrom').value=d;$('dateTo').value=d;renderOrders()};
-$('deleteSelected').onclick=()=>deleteOrders([...selectedOrderIds].filter(id=>filteredOrders.some(o=>Number(o.id)===id)));
-$('clearSelection').onclick=()=>{selectedOrderIds.clear();renderOrders()};
-$('resetBtn').onclick=()=>{if(confirm('ترجع كل النصوص والصور للقيم الأصلية؟')){content={...DEFAULT_CONTENT};renderEditor();status($('saveStatus'),'تم الاسترجاع داخل اللوحة — اضغط حفظ لتطبيقه')}};
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');
-  $('contentPanel').classList.toggle('active',b.dataset.tab==='content');$('ordersPanel').classList.toggle('active',b.dataset.tab==='orders');
-  if(b.dataset.tab==='orders') loadOrders();
-});
-$('password').value=sessionStorage.getItem('em_admin_password')||'';
-renderEditor();
-loadContent();
-</script>
-</body></html>
+const DEFAULTS={brand:'English Masters الأردن',topText:'عرض خاص داخل الأردن — الدفع عند الاستلام',eyebrow:'خطة تعلم واضحة بدل التشتت',heroTitle:'خلي الإنجليزي جزء من يومك، مش مشروع مؤجل',heroText:'باقة عملية تجمع الجمل الأكثر استخدامًا، كلمات أساسية، صوتيات أمريكية، وخطة يومية تساعدك تمشي خطوة بخطوة.',price:'15',shippingAmman:'2',shippingOther:'3',heroCta:'ابدأ طلبك الآن ←',featuresTitle:'كل شيء مرتب عشان تبدأ وتكمل',featuresText:'الفكرة مش كثرة المصادر. الفكرة إن كل جزء يكون له وظيفة واضحة في رحلتك.',journeyTitle:'روتين بسيط تقدر تلتزم به',journeyText:'مش محتاج ساعات يوميًا. المهم يكون عندك تسلسل واضح وتكرار مستمر.',planTitle:'الخطة موجودة عشان تعرف تعمل إيه كل يوم',planText:'كل مرحلة لها هدف واضح، فتقلل التشتت وتقدر تقيس تقدمك.',orderSideTitle:'اطلب الباقة واستلمها داخل الأردن',orderSideText:'املأ بياناتك بدقة، وسيتم تجهيز الطلب والتواصل معك للتأكيد.',orderTitle:'بيانات الطلب',orderText:'اكتب بيانات صحيحة عشان نقدر نوصل لك الطلب بدون تأخير.',metaPixelId:''};
+let rootContent={},settings={...DEFAULTS},orders=[],filtered=[],selected=new Set();const $=id=>document.getElementById(id);const pass=()=>$('password').value.trim();
+function st(id,msg,ok=true){const e=$(id);e.textContent=msg;e.className='status '+(ok?'ok':'bad')}function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function fill(){document.querySelectorAll('[data-key]').forEach(el=>el.value=settings[el.dataset.key]??'')}
+function collect(){const out={...settings};document.querySelectorAll('[data-key]').forEach(el=>out[el.dataset.key]=el.value.trim());out.metaPixelId=String(out.metaPixelId||'').replace(/\D/g,'').slice(0,30);out.price=String(Math.max(0,Number(out.price)||15));out.shippingAmman=String(Math.max(0,Number(out.shippingAmman)||2));out.shippingOther=String(Math.max(0,Number(out.shippingOther)||3));return out}
+async function loadContent(){st('loginStatus','جاري تحميل الإعدادات...');try{const r=await fetch('/api/content',{cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'تعذر تحميل الإعدادات');rootContent=j.content||{};settings={...DEFAULTS,...(rootContent.v2||{})};fill();st('loginStatus','تم تحميل الإعدادات ✓')}catch(e){st('loginStatus',e.message,false)}}
+async function save(){if(!pass())return st('saveStatus','اكتب كلمة المرور',false);const next=collect();st('saveStatus','جاري الحفظ...');try{const r=await fetch('/api/content',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Password':pass()},body:JSON.stringify({content:{...rootContent,v2:next}})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'فشل الحفظ');settings=next;rootContent={...rootContent,v2:next};sessionStorage.setItem('em_admin_password',pass());st('saveStatus','تم الحفظ ✓')}catch(e){st('saveStatus',e.message,false)}}
+function localDay(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function getFiltered(){const f=$('dateFrom').value,t=$('dateTo').value;const a=f?new Date(f+'T00:00:00'):null,b=t?new Date(t+'T23:59:59.999'):null;return orders.filter(o=>{const d=new Date(o.created_at);return (!a||d>=a)&&(!b||d<=b)})}
+function bulkUi(){const vis=new Set(filtered.map(o=>Number(o.id)));for(const id of [...selected])if(!orders.some(o=>Number(o.id)===id))selected.delete(id);const count=[...selected].filter(id=>vis.has(id)).length;$('selectedCount').textContent=count;$('bulkBar').hidden=!count;const all=$('selectAll');if(all){all.checked=filtered.length>0&&filtered.every(o=>selected.has(Number(o.id)));all.indeterminate=!all.checked&&filtered.some(o=>selected.has(Number(o.id)))}}
+function render(){filtered=getFiltered();$('orderCount').textContent=filtered.length===orders.length?`(${orders.length})`:`(${filtered.length} من ${orders.length})`;if(!filtered.length){$('ordersBox').innerHTML='<div class="muted" style="padding:22px;text-align:center">لا توجد طلبات ضمن الفترة المحددة.</div>';bulkUi();return}$('ordersBox').innerHTML=`<table><thead><tr><th class="check"><input id="selectAll" type="checkbox"></th><th>#</th><th>الاسم</th><th>الهاتف</th><th>المحافظة</th><th>الكمية</th><th>العنوان</th><th>الإجمالي</th><th>التاريخ</th><th>إجراء</th></tr></thead><tbody>${filtered.map(o=>`<tr><td class="check"><input class="rowCheck" type="checkbox" data-id="${esc(o.id)}" ${selected.has(Number(o.id))?'checked':''}></td><td>${esc(o.id)}</td><td>${esc(o.name)}</td><td>${esc(o.phone)}</td><td>${esc(o.city)}</td><td>${esc(o.qty)}</td><td>${esc(o.address)}</td><td>${Number(o.total).toFixed(2)}</td><td>${esc(new Date(o.created_at).toLocaleString('ar-JO'))}</td><td><button class="del" data-del="${esc(o.id)}">حذف</button></td></tr>`).join('')}</tbody></table>`;document.querySelectorAll('.rowCheck').forEach(x=>x.onchange=()=>{const id=Number(x.dataset.id);x.checked?selected.add(id):selected.delete(id);bulkUi()});$('selectAll').onchange=()=>{filtered.forEach(o=>$('selectAll').checked?selected.add(Number(o.id)):selected.delete(Number(o.id)));render()};document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>removeOrders([Number(b.dataset.del)]));bulkUi()}
+async function loadOrders(){if(!pass())return st('loginStatus','اكتب كلمة المرور',false);$('ordersBox').innerHTML='<div class="muted" style="padding:20px;text-align:center">جاري تحميل الطلبات...</div>';try{const r=await fetch('/api/orders',{headers:{'X-Admin-Password':pass()},cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'تعذر تحميل الطلبات');orders=j.orders||[];sessionStorage.setItem('em_admin_password',pass());render();st('loginStatus','تم الدخول ✓')}catch(e){$('ordersBox').innerHTML=`<div class="bad" style="padding:20px;text-align:center">${esc(e.message)}</div>`;st('loginStatus',e.message,false)}}
+async function removeOrders(ids){ids=[...new Set(ids.map(Number).filter(Boolean))];if(!ids.length)return;if(!confirm(ids.length===1?`حذف الطلب #${ids[0]} نهائيًا؟`:`حذف ${ids.length} طلبات نهائيًا؟`))return;try{const r=await fetch('/api/orders',{method:'DELETE',headers:{'Content-Type':'application/json','X-Admin-Password':pass()},body:JSON.stringify(ids.length===1?{id:ids[0]}:{ids})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'تعذر الحذف');orders=orders.filter(o=>!ids.includes(Number(o.id)));ids.forEach(id=>selected.delete(id));render()}catch(e){alert(e.message||'تعذر الحذف')}}
+function exportCsv(){const rows=getFiltered();if(!rows.length)return alert('لا توجد طلبات للتصدير');const data=[['ID','الاسم','الهاتف','المحافظة','الكمية','العنوان','الإجمالي','التاريخ'],...rows.map(o=>[o.id,o.name,o.phone,o.city,o.qty,o.address,o.total,o.created_at])];const csv='\ufeff'+data.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='orders-'+localDay()+'.csv';a.click();URL.revokeObjectURL(a.href)}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));$('sitePanel').classList.toggle('active',b.dataset.tab==='site');$('ordersPanel').classList.toggle('active',b.dataset.tab==='orders');if(b.dataset.tab==='orders'&&pass())loadOrders()});$('loginBtn').onclick=async()=>{await loadContent();await loadOrders()};$('saveBtn').onclick=save;$('refreshOrders').onclick=loadOrders;$('applyFilter').onclick=render;$('todayFilter').onclick=()=>{$('dateFrom').value=$('dateTo').value=localDay();render()};$('clearFilter').onclick=()=>{$('dateFrom').value=$('dateTo').value='';render()};$('deleteSelected').onclick=()=>removeOrders([...selected].filter(id=>filtered.some(o=>Number(o.id)===id)));$('clearSelected').onclick=()=>{selected.clear();render()};$('exportCsv').onclick=exportCsv;const saved=sessionStorage.getItem('em_admin_password');if(saved)$('password').value=saved;loadContent();
+</script></body></html>

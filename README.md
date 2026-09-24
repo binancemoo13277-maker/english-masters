@@ -1,13 +1,19 @@
-# English Masters — النسخة الاحترافية
+# English Masters Jordan — Original Clean Build
 
-- Facebook Pixel ID من لوحة التحكم: PageView / ViewContent / InitiateCheckout / Purchase.
-- تحديد طلب منفرد أو تحديد الكل وحذف جماعي مع تأكيد.
-- فلتر طلبات من تاريخ إلى تاريخ + فلتر اليوم + مسح الفلتر.
-- تصدير CSV للطلبات الظاهرة بعد الفلترة.
-- السعر والتوصيل كما في النسخة السابقة.
+هذه نسخة أصلية جديدة من حيث التصميم والنصوص، بدون استخدام صور أو أصول من الصفحة التي سببت بلاغ DMCA.
 
-بعد الرفع على GitHub ونجاح Deploy، افتح `/admin.html`، أدخل كلمة مرور الإدارة، وضع Pixel ID ثم احفظ.
+## الوظائف
+- صفحة هبوط أصلية RTL ومتجاوبة.
+- السعر الافتراضي 15 د.أ.
+- التوصيل يُحسب في الخلفية: عمّان 2 د.أ، باقي المحافظات 3 د.أ.
+- نفس جدول `orders` القديم في Neon، لذلك الطلبات السابقة تبقى موجودة.
+- `/admin.html` لإدارة النصوص والسعر وFacebook Pixel والطلبات.
+- حذف مفرد وجماعي، تحديد الكل، فلتر بالتاريخ، وتصدير CSV.
+- Meta Pixel: PageView / ViewContent / InitiateCheckout / Purchase.
 
+## متغيرات Vercel المطلوبة
+- `DATABASE_URL` = نفس رابط Neon الحالي.
+- `ADMIN_PASSWORD` = كلمة مرور لوحة الأدمن.
 
-## No-flash update
-The landing page now hides all dynamic content until /api/content finishes loading, then reveals the final state once. A short loader is shown instead of stale text/images/prices.
+## ملاحظة DMCA
+استبدال المحتوى المخالف لا يضمن أن Vercel سيعيد المشروع الموقوف تلقائيًا. بعد رفع النسخة النظيفة، استخدم مسار المراجعة/الدعم الذي أرسله Vercel لطلب إعادة التفعيل إذا ظل المشروع على صفحة DMCA.

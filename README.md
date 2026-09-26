@@ -1,19 +1,15 @@
-# English Masters Jordan — Original Clean Build
+# English Masters — Netlify clean deployment
 
-هذه نسخة أصلية جديدة من حيث التصميم والنصوص، بدون استخدام صور أو أصول من الصفحة التي سببت بلاغ DMCA.
+نسخة نظيفة أصلية جاهزة لـ Netlify، وتستخدم نفس قاعدة Neon القديمة.
 
-## الوظائف
-- صفحة هبوط أصلية RTL ومتجاوبة.
-- السعر الافتراضي 15 د.أ.
-- التوصيل يُحسب في الخلفية: عمّان 2 د.أ، باقي المحافظات 3 د.أ.
-- نفس جدول `orders` القديم في Neon، لذلك الطلبات السابقة تبقى موجودة.
-- `/admin.html` لإدارة النصوص والسعر وFacebook Pixel والطلبات.
-- حذف مفرد وجماعي، تحديد الكل، فلتر بالتاريخ، وتصدير CSV.
-- Meta Pixel: PageView / ViewContent / InitiateCheckout / Purchase.
+## Netlify environment variables
+- DATABASE_URL = نفس Connection String من Neon
+- ADMIN_PASSWORD = كلمة مرور لوحة التحكم
 
-## متغيرات Vercel المطلوبة
-- `DATABASE_URL` = نفس رابط Neon الحالي.
-- `ADMIN_PASSWORD` = كلمة مرور لوحة الأدمن.
+## Paths
+- الموقع: /
+- لوحة التحكم: /admin.html
+- فحص قاعدة البيانات: /api/health
 
-## ملاحظة DMCA
-استبدال المحتوى المخالف لا يضمن أن Vercel سيعيد المشروع الموقوف تلقائيًا. بعد رفع النسخة النظيفة، استخدم مسار المراجعة/الدعم الذي أرسله Vercel لطلب إعادة التفعيل إذا ظل المشروع على صفحة DMCA.
+## Important
+هذه النسخة مصممة لاستضافة Netlify وتستخدم Netlify Functions داخل `netlify/functions`.

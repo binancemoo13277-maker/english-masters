@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+<rect width="100%" height="100%" rx="40" fill="#fff7f8"/>
+<circle cx="120" cy="120" r="90" fill="#ef233c" opacity=".12"/>
+<circle cx="780" cy="780" r="110" fill="#ef233c" opacity=".08"/>
+<circle cx="790" cy="110" r="52" fill="#ef233c"/><text x="790" y="128" text-anchor="middle" font-size="52" font-weight="900" fill="white">8</text>
+<rect x="80" y="180" width="180" height="504" rx="26" fill="#ef233c"/>
+<rect x="207" y="225" width="162" height="432" rx="22" fill="#161616"/>
+<rect x="387" y="162" width="198" height="522" rx="28" fill="white" stroke="#ef233c" stroke-width="10"/>
+<text x="639" y="396" text-anchor="middle" font-family="Arial" font-size="46" font-weight="900" fill="#161616">Natural Learning</text>
+<text x="639" y="468" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#ef233c">Bonus Guide</text>
+</svg>

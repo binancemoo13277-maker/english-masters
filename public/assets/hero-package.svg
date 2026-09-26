@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<rect width="100%" height="100%" rx="40" fill="#fff7f8"/>
+<circle cx="120" cy="120" r="90" fill="#ef233c" opacity=".12"/>
+<circle cx="1080" cy="580" r="110" fill="#ef233c" opacity=".08"/>
+
+<rect x="80" y="140" width="240" height="392" rx="26" fill="#ef233c"/>
+<rect x="276" y="175" width="216" height="336" rx="22" fill="#161616"/>
+<rect x="516" y="126" width="264" height="406" rx="28" fill="white" stroke="#ef233c" stroke-width="10"/>
+<text x="852" y="308" text-anchor="middle" font-family="Arial" font-size="56" font-weight="900" fill="#161616">English Masters</text>
+<text x="852" y="364" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#ef233c">Learning Bundle</text>
+</svg>

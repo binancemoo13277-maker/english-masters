@@ -1,15 +1,7 @@
-# English Masters — Netlify clean deployment
+# English Masters — Netlify old-style layout
 
-نسخة نظيفة أصلية جاهزة لـ Netlify، وتستخدم نفس قاعدة Neon القديمة.
+Original red landing-page look adapted for Netlify. Third-party images were replaced with locally generated original SVG artwork.
 
-## Netlify environment variables
-- DATABASE_URL = نفس Connection String من Neon
-- ADMIN_PASSWORD = كلمة مرور لوحة التحكم
-
-## Paths
-- الموقع: /
-- لوحة التحكم: /admin.html
-- فحص قاعدة البيانات: /api/health
-
-## Important
-هذه النسخة مصممة لاستضافة Netlify وتستخدم Netlify Functions داخل `netlify/functions`.
+Required environment variables in Netlify:
+- DATABASE_URL
+- ADMIN_PASSWORD
